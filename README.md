@@ -1,2 +1,0 @@
-# PerfectPetSelector
-Perfect Pet Selector
