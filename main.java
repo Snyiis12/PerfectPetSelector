@@ -28,7 +28,14 @@ class Main {
     Scanner myObj = new Scanner(System.in);
     System.out.println("Enter your favorite color");
     String colors = myObj.nextLine();
-    String color = colors.toLowerCase();
+    String color = colors.trim().toLowerCase();
+    if (!color.equals("blue") && !color.equals("green") && !color.equals("red")) {
+      System.out.println("Color is Invalid. Please enter blue, green, or red.");
+      myObj.close();
+      return;
+    } else {
+      System.out.println("Color is Valid");
+    }
     System.out.println("Enter your favorite season");
     String seasons = myObj.nextLine();
     String season = seasons.toLowerCase();
@@ -60,7 +67,7 @@ class Main {
     else if (("red".equals(color)) && ("aeiouAEIOU".indexOf(name.substring(0,1))>0)) {
      System.out.println("you should get a porcupine as your pet!");
     }//Pony
-    else if ((season.equals("summer") ) || ((season.equals("fall")) && !(("green".equals(color)) && !("aeiouAEIOU".indexOf(name.substring(0,1))>0)) && (!("red".equals(color)) && ("aeiouAEIOU".indexOf(name.substring(0,1))>0) && (!("red".equals(color)) && !("aeiouAEIOU".indexOf(name.substring(0,1))>0))))) {
+    else if ((season.equals("summer") || (season.equals("fall") && !(("green".equals(color)) && !("aeiouAEIOU".indexOf(name.substring(0,1))>0)) && (!("red".equals(color)) && ("aeiouAEIOU".indexOf(name.substring(0,1))>0) && (!("red".equals(color)) && !("aeiouAEIOU".indexOf(name.substring(0,1))>0)))))) {
     System.out.println("you should get a pony as your pet!");
     }//Axolotl
     else if (("blue".equals(color)) && (!("aeiouAEIOU".indexOf(name.substring(0,1))>0) && !(season.equals("fall") && !(season.equals("summer"))))) {
