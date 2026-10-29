@@ -38,11 +38,22 @@ class Main {
     }
     System.out.println("Enter your favorite season");
     String seasons = myObj.nextLine();
-    String season = seasons.toLowerCase();
+    String season = seasons.trim().toLowerCase();
+    if (!season.equals("spring") && !season.equals("summer") && !season.equals("fall") && !season.equals("winter")) {
+      System.out.println("Season is Invalid. Please enter spring, summer, fall, or winter.");
+      myObj.close();
+      return;
+    } else {
+      System.out.println("Season is Valid");
+    }
     System.out.println("Enter your name:");
     String names = myObj.nextLine();
-    String name = names.toLowerCase();
-    name = name.substring(0,1).toUpperCase() + name.substring(1);
+    String name = names.trim().toLowerCase();
+    if (name.isEmpty() || !Character.isLetter(name.charAt(0))) {
+      System.out.println("Name is Invalid. Please enter a name that starts with a letter.");
+      myObj.close();
+      return;
+    }
     // Output input by user
     System.out.println("Color: " + color);
     System.out.println("Season: " + season);
